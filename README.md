@@ -10,3 +10,7 @@ This repo contains a prototype of a formalized methodology for exploratory wells
 6. to plot a decline profile of target value RMSE, run: `python visualise_rmse_decline_profiles.py -d OilCase2020_field_run_results/RMSE_decline_profile.csv  -o RMSE_decline_profiles/summary.png`
 
 Python version is >=3.7
+
+## The use of pandas
+
+Almost all files in `src` use some standard feature set of pandas, but the most extensive use of Pandas' capabilities can be seen in `src/composite_metrics.py`.
