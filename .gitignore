@@ -1,0 +1,6 @@
+.idea
+venv
+__pycache__
+OilCase2020_field_run_results
+OilCase2020_figures
+RMSE_decline_profiles

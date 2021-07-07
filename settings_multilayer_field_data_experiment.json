@@ -1,0 +1,98 @@
+{
+  "random_seed": 100,
+  "train": [[10, 10], [10, 90], [90, 10], [90, 90]],
+  "grid_builder_settings": {
+    "x_max_grid": 100,
+	"y_max_grid": 100,
+	"x_min_grid": 1,
+	"y_min_grid": 1
+  },
+  "target_value_of_composite_metrics": "ntg",
+  "number_of_repetitions": 15,
+  "layers2forecasters": [
+    {
+      "name": "river",
+      "q2f": {
+        "top": "BaselineForecaster",
+        "thickness": "BaselineForecaster",
+        "por": "BaselineForecaster"
+      }
+    },
+    {
+      "name": [
+        "river",
+        "bars"
+      ],
+      "q2f": {
+        "thickness": "BaselineForecaster"
+      }
+    },
+    {
+      "name": "bars",
+      "q2f": {
+        "thickness": "BaselineForecaster",
+        "por": "BaselineForecaster"
+      }
+    },
+    {
+      "name": [
+        "bars",
+        "achimovka"
+      ],
+      "q2f": {
+        "thickness": "BaselineForecaster"
+      }
+    },
+    {
+      "name": "achimovka",
+      "q2f": {
+        "thickness": "BaselineForecaster",
+        "por": "BaselineForecaster"
+      }
+    }
+  ],
+  "layers2metrics": [
+    {"name": "river", "q2m": {
+      "thickness": {
+        "metrics": "WeightedMaxStd",
+        "weight_class": "Cubic",
+        "params": {"zero_region_relative": 0.4, "transient_region_relative": 0.2},
+        "wf_ensemble_mode": "universal"
+      },
+      "por": {
+        "metrics": "WeightedMaxStd",
+        "weight_class": "Cubic",
+        "params": {"zero_region_relative": 0.4, "transient_region_relative": 0.2},
+        "wf_ensemble_mode": "universal"
+      }
+    }},
+    {"name": "bars", "q2m": {
+      "thickness": {
+        "metrics": "WeightedMaxStd",
+        "weight_class": "Cubic",
+        "params": {"zero_region_relative": 0.4, "transient_region_relative": 0.2},
+        "wf_ensemble_mode": "universal"
+      },
+      "por": {
+        "metrics": "WeightedMaxStd",
+        "weight_class": "Cubic",
+        "params": {"zero_region_relative": 0.4, "transient_region_relative": 0.2},
+        "wf_ensemble_mode": "universal"
+      }
+    }},
+    {"name": "achimovka", "q2m": {
+      "thickness": {
+        "metrics": "WeightedMaxStd",
+        "weight_class": "Cubic",
+        "params": {"zero_region_relative": 0.4, "transient_region_relative": 0.2},
+        "wf_ensemble_mode": "universal"
+      },
+      "por": {
+        "metrics": "WeightedMaxStd",
+        "weight_class": "Cubic",
+        "params": {"zero_region_relative": 0.4, "transient_region_relative": 0.2},
+        "wf_ensemble_mode": "universal"
+      }
+    }}
+  ]
+}
